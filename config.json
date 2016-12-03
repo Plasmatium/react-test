@@ -1,0 +1,149 @@
+{
+  "entry": [
+    "/home/jonny/Github/react-test/src/app.js"
+  ],
+  "output": {
+    "path": "/home/jonny/Github/react-test/public/",
+    "filename": "react-test.0.0.1.js",
+    "cssFilename": "react-test.0.0.1.css",
+    "hash": false,
+    "publicPath": "./"
+  },
+  "resolve": {
+    "extensions": [
+      "",
+      ".js",
+      ".jsx",
+      ".json"
+    ]
+  },
+  "plugins": [
+    {
+      "config": {
+        "html": true,
+        "isDev": false,
+        "serveCustomHtmlInDev": true,
+        "package": {
+          "name": "react-test",
+          "version": "0.0.1",
+          "description": "React env setup & test",
+          "scripts": {
+            "start": "hjs-dev-server",
+            "build": "webpack",
+            "bb": "babel src -d lib",
+            "test": "echo \"Error: no test specified\" && exit 1"
+          },
+          "keywords": [],
+          "author": "Plasmatium",
+          "license": "ISC",
+          "devDependencies": {
+            "babel-cli": "^6.18.0",
+            "babel-preset-latest": "^6.16.0",
+            "babel-preset-react": "^6.16.0"
+          },
+          "dependencies": {
+            "autoprefixer": "^6.5.3",
+            "babel": "^6.5.2",
+            "babel-loader": "^6.2.8",
+            "css-loader": "^0.26.0",
+            "hjs-webpack": "^8.4.3",
+            "json-loader": "^0.5.4",
+            "jsx-loader": "^0.13.2",
+            "postcss-loader": "^1.1.1",
+            "react": "^15.4.1",
+            "react-dom": "^15.4.1",
+            "react-hot-loader": "^1.3.1",
+            "style-loader": "^0.13.1",
+            "stylus-loader": "^2.4.0",
+            "url-loader": "^0.5.7",
+            "webpack-dev-server": "^1.16.2",
+            "yeticss": "^7.3.0"
+          }
+        }
+      },
+      "filename": "index.html"
+    },
+    {},
+    {
+      "preferEntry": true
+    },
+    {
+      "options": {
+        "compress": {
+          "warnings": false
+        },
+        "output": {
+          "comments": false
+        },
+        "sourceMap": false
+      }
+    },
+    {
+      "filename": "react-test.0.0.1.css",
+      "options": {
+        "allChunks": true
+      },
+      "id": 1
+    },
+    {
+      "definitions": {
+        "process.env.NODE_ENV": "\"production\""
+      }
+    }
+  ],
+  "module": {
+    "loaders": [
+      {
+        "test": {},
+        "exclude": {},
+        "loader": "babel-loader"
+      },
+      {
+        "test": {},
+        "loaders": [
+          "json"
+        ]
+      },
+      {
+        "test": {},
+        "loader": "url-loader?limit=10000"
+      },
+      {
+        "test": {},
+        "loader": "url-loader?limit=10000"
+      },
+      {
+        "test": {},
+        "loader": "url-loader?mimetype=image/svg+xml&limit=10000"
+      },
+      {
+        "test": {},
+        "loader": "url-loader?mimetype=application/octet-stream&limit=10000"
+      },
+      {
+        "test": {},
+        "loader": "url-loader?mimetype=application/font-woff&limit=10000"
+      },
+      {
+        "test": {},
+        "loader": "url-loader?limit=10000"
+      },
+      {
+        "test": {},
+        "loader": "/home/jonny/Github/react-test/node_modules/.1.0.1@extract-text-webpack-plugin/loader.js?{\"omit\":1,\"extract\":true,\"remove\":true}!style-loader!css-loader!postcss-loader"
+      },
+      {
+        "test": {},
+        "loader": "/home/jonny/Github/react-test/node_modules/.1.0.1@extract-text-webpack-plugin/loader.js?{\"omit\":1,\"extract\":true,\"remove\":true}!style-loader!css-loader!postcss-loader!stylus-loader"
+      }
+    ]
+  },
+  "stylus": {
+    "use": [
+      null
+    ]
+  },
+  "postcss": [
+    null
+  ]
+}
