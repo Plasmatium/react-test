@@ -25,9 +25,43 @@ function range(n) {
 }
 
 function getRandomColor() {
-  return '#'+randSeq(['a', 'a', '6', '6', 'e', 'e']).join('');
+  return '#'+randSeq(['a', 'd', '6', '1', 'e', '3']).join('');
 }
 
+function intParser(start, curr, end, div) {
+  let step = (end-start)/div;
+  return (curr+step);
+}
+
+function vary(start, end, div, time, parser, cbFun) {
+  //prev: number
+  //target: number
+  //change prev to target, step depends on div, do this in time(ms).
+  //Vary(1, 10, 100, 100) means change 1 to 100,
+  //divided in 100 parts(0.1 for each parts), in 100ms,
+  //and use callback function: cbFun each time in step.
+
+  let curr = start;
+  let interval_time = time/div;
+  let excute_count = 0;
+  let timerId = setInterval(() => {
+    if(excute_count > div) {
+      //target reached, vary operation complete, timer should shut down;
+      clearInterval(timerId);
+      return;
+    }
+
+    //target still overhead
+    cbFun(curr);
+    curr = parser(start, curr, end, div);
+    excute_count++;
+    return;
+  }, interval_time);
+}
+
+//vary(1, 10, 10, 10000, console.log);
 //console.log(randSeq(['a', 'a', '6', '6', 'e', 'e']));
 //console.log(getRandomColor());
 exports.getRandomColor = getRandomColor;
+exports.vary = vary;
+exports.intParser = intParser;
