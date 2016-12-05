@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 require("./style.css");
-var utils = require("./utils")
+var utils = require("./utils");
+var Toggle = require("./toggle_button").Toggle;
 
 
 class Clock extends React.Component {
@@ -103,6 +104,7 @@ class Clock extends React.Component {
         <h1 style={h1style}>Hello world!
           The color is {h1style.backgroundColor}</h1>
         <h2 style={h2style}>It is {this.state.date.toLocaleTimeString()}</h2>
+        <Toggle toggled="true"/>
       </div>
     );
   }
