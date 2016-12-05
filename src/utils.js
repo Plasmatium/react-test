@@ -25,7 +25,7 @@ function range(n) {
 }
 
 function getRandomColor() {
-  return '#'+randSeq(['f', 'f', 'f', 'f', 'f', 'e']).join('');
+  return '#'+randSeq(['3', '6', '9', 'b', 'd', 'f']).join('');
 }
 
 function intParser(start, curr, end, div) {
