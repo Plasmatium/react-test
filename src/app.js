@@ -5,9 +5,10 @@ require('./style.css');
 let utils = require('./utils');
 let Toggle = require('./toggle_button').Toggle;
 let Clock = require('./Clock').Clock;
+let LoginControl = require('./loginControl').LoginControl;
 
 ReactDOM.render(
-  <Clock />,
+  <LoginControl />,
   document.getElementById('root')
 );
 
