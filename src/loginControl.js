@@ -12,24 +12,62 @@ function WelcomeInfo() {
 exports.LoginControl = class LoginControl extends React.Component {
   constructor (props) {
     super(props);
-    this.state = {logged: false};
+    this.state = {
+      logged: false,
+      buttonCaption: 'Login',
+      handling: false
+    };
     this.handleLogButtonClick = this.handleLogButtonClick.bind(this);
   }
 
   handleLogButtonClick() {
-    this.setState({logged: !this.state.logged});
+    this.setState({
+      handling: true
+    });
+    this.handleLog();
+  }
+
+  handleLog() {
+    setTimeout(
+      () => {
+        //handle finished
+        let logged = this.state.logged;
+        let caption = logged ? 'Login' : 'Log off';
+        this.setState({
+          handling: false,
+          logged: !logged,
+          buttonCaption: caption
+        });
+      },
+      7000
+    );
+    this.handleButtonCaption();
+  }
+
+  handleButtonCaption() {
+    let timerId = setInterval(
+      () => {
+        this.setState( (prevState) => {
+          if (prevState.handling === false) {
+            clearInterval(timerId);
+            return prevState;
+          }
+          let caption = prevState.buttonCaption + '.';
+          return {buttonCaption: caption};
+        });//{buttonCaption: caption});
+      },
+      1500
+    );
   }
 
   render() {
-    let button = null;
     let info = null;
+    let button = <button onClick = {this.handleLogButtonClick}>{this.state.buttonCaption}</button>;
     if (this.state.logged) {
       info = <WelcomeInfo />;
-      button = <button onClick = {this.handleLogButtonClick}>Log off</button>;
     }
     else {
       info = <LoginInfo />;
-      button = <button onClick = {this.handleLogButtonClick}>Login</button>;
     }
 
     return (
