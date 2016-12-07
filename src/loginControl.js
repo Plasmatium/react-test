@@ -21,6 +21,9 @@ exports.LoginControl = class LoginControl extends React.Component {
   }
 
   handleLogButtonClick() {
+    if (this.state.handling == true) {
+      return;
+    }
     this.setState({
       handling: true
     });

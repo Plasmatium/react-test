@@ -8,9 +8,14 @@ let utils = require('./utils');
 let Toggle = require('./toggle_button').Toggle;
 let Clock = require('./Clock').Clock;
 let LoginControl = require('./loginControl').LoginControl;
+let ListCtrl = require('./listComponents').ListCtrl;
+
+
+
+let data = ['asd', 'fds', 'afaf', 'ebef', '3fre', 'bnij'];
 
 ReactDOM.render(
-  <LoginControl />,
+  <ListCtrl data={data} />,
   document.getElementById('root')
 );
 
