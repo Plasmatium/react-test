@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 require('./style.css');
+let _ = require('lodash')
+
 let utils = require('./utils');
 let Toggle = require('./toggle_button').Toggle;
 let Clock = require('./Clock').Clock;
