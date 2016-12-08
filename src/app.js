@@ -9,13 +9,14 @@ let Toggle = require('./toggle_button').Toggle;
 let Clock = require('./Clock').Clock;
 let LoginControl = require('./loginControl').LoginControl;
 let ListCtrl = require('./listComponents').ListCtrl;
+let BoilingCalc = require('./boilingCalc').BoilingCalc;
 
 
 
 let data = ['asd', 'fds', 'afaf', 'ebef', '3fre', 'bnij'];
 
 ReactDOM.render(
-  <ListCtrl data={data} />,
+  <BoilingCalc />,
   document.getElementById('root')
 );
 
