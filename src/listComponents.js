@@ -10,11 +10,13 @@ class ListElt extends React.Component {
   }
 
   handleClick () {
+    console.log('handling click in ListElt');
     this.props.updateSelected(this.props.string);
   }
 
   render() {
-    let style = this.props.selected?{color: red}:{};
+    console.log('randering ListElt:', this.props.string);
+    let style = this.props.selected?{color: 'red'}:{};
     return <li
       onClick={this.handleClick}
       style={style}>
@@ -26,16 +28,25 @@ class ListElt extends React.Component {
 exports.ListCtrl = class ListCtrl extends React.Component {
   constructor(props) {
     super(props);
-    this.handleClick = this.handleClick.bind(this);
+    this.state = {
+      selected: ''
+    }
+    this.updateSelected = this.updateSelected.bind(this);
   }
 
-  handleClick(prox, event) {
-    debugger;
+  updateSelected(string) {
+    console.log('handling ListCtrl.updateSelected');
+    this.setState({selected: string});
   }
 
   render() {
+    console.log('randering ListCtrl');
     let list = data.map((string, idx) => {
-      return <ListElt string={string} key={idx}/>;
+      return <ListElt
+        string={string}
+        key={idx}
+        selected={this.state.selected===string?true:false}
+        updateSelected={this.updateSelected}/>;
     });
 
     return (
