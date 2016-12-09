@@ -28,20 +28,19 @@ function convert(temp, mode) {
 class Input extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: this.props.value};
+    this.state = {value: this.props.string};
     console.log('--------', this.state);
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange (e) {
-    console.log(e);
     let v = e.target.value;
     this.setState({value: v});
     this.props.updateOther(v, this.props.mode);
   }
 
   render () {
-    debugger;
+    console.log('Input rending', this);
     return <input
       value={this.state.value}
       onChange={this.handleChange}></input>
@@ -53,38 +52,37 @@ exports.BoilingCalc = class BoilingCalc extends React.Component {
   //
   constructor(props) {
     super(props);
+    this.state = {degC: 0, degF: 32};
     this.updateOther = this.updateOther.bind(this);
-    this.state = {c: 0, f: 32};
   }
 
   updateOther(v, mode) {
     if(mode==='c') {
-      this.setState({f: c2f(v)});
-      this.setState({c: v});
+      this.setState({degC: v, degF: c2f(v)});
     }
     else if(mode==='f') {
-      this.setState({c: f2c(v)});
-      this.setState({f: v});
+      this.setState({degF: v, degC: f2c(v)});
     }
   }
 
   render() {
-    debugger;
     let frameC = <fieldset>
       <legend>{'degC'}</legend>
       <Input
-        value={this.state.c}
+        key={Date.now()}
+        string={this.state.degC}
         updateOther={this.updateOther}
         mode={'c'} />
-    </fieldset>
+    </fieldset>;
 
     let frameF = <fieldset>
       <legend>{'degF'}</legend>
       <Input
-        value={this.state.f}
+        key={Date.now()}
+        string={this.state.degF}
         updateOther={this.updateOther}
         mode={'f'} />
-    </fieldset>
+    </fieldset>;
 
     return <div>
       {frameC}
