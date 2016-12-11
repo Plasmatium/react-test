@@ -10,13 +10,14 @@ let Clock = require('./Clock').Clock;
 let LoginControl = require('./loginControl').LoginControl;
 let ListCtrl = require('./listComponents').ListCtrl;
 let BoilingCalc = require('./boilingCalc').BoilingCalc;
+let Mock = require('./mock.js').Mock;
 
 
 
 let data = ['asd', 'fds', 'afaf', 'ebef', '3fre', 'bnij'];
 
 ReactDOM.render(
-  <BoilingCalc />,
+  <Mock />,
   document.getElementById('root')
 );
 
