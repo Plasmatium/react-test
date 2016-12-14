@@ -12,12 +12,14 @@ let ListCtrl = require('./listComponents').ListCtrl;
 let BoilingCalc = require('./boilingCalc').BoilingCalc;
 let Mock = require('./mock.js').Mock;
 
+import {CompRef} from './children_test.js';
+import {CustomTextInput} from './ref_test.js'
 
 
 let data = ['asd', 'fds', 'afaf', 'ebef', '3fre', 'bnij'];
 
 ReactDOM.render(
-  <Mock />,
+  <CustomTextInput />,
   document.getElementById('root')
 );
 
