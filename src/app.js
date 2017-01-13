@@ -1,8 +1,13 @@
+import "babel-polyfill";
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+
 require('./style.css');
+require('./global_install');
 let _ = require('lodash')
+
+
 /*
 let utils = require('./utils');
 let Toggle = require('./toggle_button').Toggle;
@@ -20,7 +25,6 @@ let data = ['asd', 'fds', 'afaf', 'ebef', '3fre', 'bnij'];
 */
 
 import {CounterButton, WordAdder} from './performance.js';
-console.log(CounterButton);
 ReactDOM.render(
   <WordAdder />,
   document.getElementById('root')

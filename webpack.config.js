@@ -1,7 +1,7 @@
 var fs = require('fs');
 var getConfig = require('hjs-webpack');
 
-module.exports = getConfig({
+let cfg = getConfig({
   // entry point for the app
   in: './src/app.js',
 
@@ -17,4 +17,7 @@ module.exports = getConfig({
   // but since it's destructive we make it
   // false by default
   clearBeforeBuild: true,
-})
+});
+cfg.entry = ['babel-polyfill', ...cfg.entry];
+//console.log(cfg);
+module.exports = cfg;
