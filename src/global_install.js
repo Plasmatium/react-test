@@ -47,17 +47,85 @@ global.multiGet = (num) => {
   }
   return results;
 }
+
+//
+/*  How to use Promise
+  p = new Promise((res, rej) => {
+  let data = null;
+  let time = Math.random();
+    if(time > 0.5) {
+    data = {data: 35, time: time};
+        setTimeout(res, 1000, data);
+    return data;
+    }
+    else {
+    data = {data: 'error', time: time};
+        setTimeout(rej, 1500, data);
+    return data;
+    }
+  });
+  p.then(console.log).catch(console.log)
+//*/
+
 //--------------------------------
 global.Right = Either.Right;
 global.Left = Either.Left;
 
 global.r = Right;
+global.PRM = (func) => {
+  //func = (res, rej) => { code }
 
-global.f = curry((res, rej) => {
-    console.log('instantly exec f');
-    setTimeout(res, 1000, {data: 35});
-})
+}
 
-global.then = curry((res, f) => f(res, null));
+/*
+global.f = (res, rej, d) => {
+	let data = null;
+	let time = Math.random();
+  if(time > 0.5) {
+    data = {data: d++, time: time};
+    setTimeout(res, 1000, data);
+  }
+  else {
+    data = {data: 'error', time: time};
+    setTimeout(rej, 1500, data);
+  }
+  return data;
+}
+*/
+global.g_d = null;
+global.dealasync = (n, res, rej) => {
+  let time = Math.random()*2000;
+  if(time>1500) {
+    setTimeout(rej, time, `timeout: ${time}`);
+  }
+  else {
+    setTimeout(res, time, n+1);
+  }
+}
+
+global.f_res = (value) => {
+  console.log('successful, data:', value);
+  g_d = value;
+  return promiseDA(g_d);
+}
+
+global.f_rej = (value) => {
+  console.log('error, g_d is:', g_d, 'timeout:', value);
+}
+
+global.promiseDA = (n) => {
+  return new Promise((res, rej)=>{
+    dealasync(n, res, rej);
+  });
+}
+
+global.test_for_promise = (n) => {
+  let p = promiseDA(0)
+  for(let i = 0; i < n; i++) {
+    p = p.then(f_res);
+  }
+  p.catch(f_rej);
+  return p;
+}
 
 //================================
