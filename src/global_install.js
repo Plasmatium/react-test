@@ -92,6 +92,8 @@ global.f = (res, rej, d) => {
   return data;
 }
 */
+
+//------promise version:
 global.g_d = null;
 global.dealasync = (n, res, rej) => {
   let time = Math.random()*2000;
@@ -127,5 +129,11 @@ global.test_for_promise = (n) => {
   p.catch(f_rej);
   return p;
 }
+//-------------------------
+//------monad version:
+
+global.cda = curry(dealasync);
+global.m_res = (func) => IO(func(f_res));
+global.m_rej = (func) => IO(func(f_rej));
 
 //================================
